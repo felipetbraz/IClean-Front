@@ -3,7 +3,7 @@ package com.ddm.iclean.dto;
 public class DtoLogin {
 
     private String email;
-    private String password;
+    private String senha;
     private String token;
 
 
@@ -16,12 +16,12 @@ public class DtoLogin {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public String getToken() {

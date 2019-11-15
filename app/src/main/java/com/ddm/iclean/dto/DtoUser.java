@@ -4,20 +4,20 @@ public class DtoUser {
 
     private String email;
     private int id;
-    private String name;
-    private String password;
+    private String nome;
+    private String senha;
     private String cpf;
 
-    public DtoUser(String email, String name, String password, String cpf) {
+    public DtoUser(String nome, String cpf, String senha, String email) {
         this.email = email;
-        this.name = name;
-        this.password = password;
+        this.nome = nome;
+        this.senha = senha;
         this.cpf = cpf;
     }
 
-    public DtoUser(String email, String name, String cpf) {
+    public DtoUser(String name, String cpf, String email) {
         this.email = email;
-        this.name = name;
+        this.nome = nome;
         this.cpf = cpf;
     }
 
@@ -37,20 +37,20 @@ public class DtoUser {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public String getCpf() {

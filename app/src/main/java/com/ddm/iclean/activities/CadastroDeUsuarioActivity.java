@@ -32,7 +32,7 @@ public class CadastroDeUsuarioActivity extends AppCompatActivity {
         String email = ((EditText) findViewById(R.id.et_cadastro_usuario_email)).getText().toString();
         String senha = ((EditText) findViewById(R.id.et_cadastro_usuario_senha)).getText().toString();
 
-        DtoUser dtoUser = new DtoUser(email, nome, senha, cpf);
+        DtoUser dtoUser = new DtoUser(nome, cpf, senha, email);
 
         RetrofitService.getServico(this).cadastraUsuario(dtoUser).enqueue(new Callback<DtoUser>() {
             @Override

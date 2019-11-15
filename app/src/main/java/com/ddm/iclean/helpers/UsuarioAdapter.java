@@ -41,7 +41,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter <UsuarioAdapter.Usuario
 
     @Override
     public void onBindViewHolder(@NonNull UsuarioAdapter.UsuarioHolder holder, int position) {
-        String nome = lista.get(position).getName();
+        String nome = lista.get(position).getNome();
         holder.nome.setText(nome);
     }
 
@@ -63,7 +63,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter <UsuarioAdapter.Usuario
         @Override
         public void onClick(View v){
             DtoUser user = lista.get(getLayoutPosition());
-            String nome = user.getName();
+            String nome = user.getNome();
             int id = user.getId();
             String cpf = user.getCpf();
             String email = user.getEmail();

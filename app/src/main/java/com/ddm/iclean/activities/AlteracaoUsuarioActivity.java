@@ -20,7 +20,7 @@ import retrofit2.Response;
 
 public class AlteracaoUsuarioActivity extends AppCompatActivity {
     private static final String TAG = "AlteracaoUsuarioActivit";
-    EditText et_nome, et_email, et_cpf;
+    EditText et_nome, et_cpf, et_email;
     int id;
 
     @Override
@@ -49,9 +49,9 @@ public class AlteracaoUsuarioActivity extends AppCompatActivity {
         String senha = ((EditText) findViewById(R.id.et_cadastro_usuario_senha)).getText().toString();
         DtoUser dtoUser;
         if(senha.isEmpty())
-            dtoUser = new DtoUser(email, nome, cpf);
+            dtoUser = new DtoUser(nome, cpf, email);
         else
-            dtoUser = new DtoUser(email, nome, senha, cpf);
+            dtoUser = new DtoUser(nome, cpf, senha, email);
         String token = getToken();
         RetrofitService.getServico(this).alteraUsuario(dtoUser, id, "Bearer" + token).enqueue(new Callback<DtoUser>() {
             @Override

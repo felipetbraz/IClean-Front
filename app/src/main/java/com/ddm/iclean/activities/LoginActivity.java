@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
         DtoLogin dtoLogin = new DtoLogin();
         dtoLogin.setEmail(email);
-        dtoLogin.setPassword(senha);
+        dtoLogin.setSenha(senha);
 
         RetrofitService.getServico(this).login(dtoLogin).enqueue(new Callback<DtoLogin>() {
             @Override
