@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitService {
 
     private static Context context;
-    private String baseUrl = "http://localhost:8080/";
+    private String baseUrl = "https://prjiclean.herokuapp.com/";
     private InterfaceDeServicos api;
     private static RetrofitService instancia;
 
