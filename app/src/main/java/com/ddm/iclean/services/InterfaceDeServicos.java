@@ -1,7 +1,9 @@
 package com.ddm.iclean.services;
 
+import com.ddm.iclean.dto.DtoAnuncio;
 import com.ddm.iclean.dto.DtoLogin;
 import com.ddm.iclean.dto.DtoUser;
+import com.ddm.iclean.entity.ResponseEntitity;
 
 import java.util.List;
 
@@ -24,6 +26,9 @@ public interface InterfaceDeServicos {
 
     @GET("/usuarios")
     Call<List<DtoUser>> todosUsuarios(@Header("Authorization") String authorization);
+
+    @GET("/anuncios")
+    Call<ResponseEntitity<DtoAnuncio>> buscarAnuncios();
 
     @PUT("/usuarios/{id}")
     Call<DtoUser> alteraUsuario(@Body DtoUser user, @Path("id") int id, @Header("Authorization") String authorization);
