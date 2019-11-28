@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.ddm.iclean.R;
 import com.ddm.iclean.dto.DtoUser;
@@ -43,7 +44,10 @@ public class ListaUsuariosActivity extends AppCompatActivity {
         RetrofitService.getServico(this).todosUsuarios("Bearer "+token).enqueue(new Callback<List<DtoUser>>() {
             @Override
             public void onResponse(Call<List<DtoUser>> call, Response<List<DtoUser>> response) {
-                List<DtoUser> lista = response.body();
+                if(response.body() == null){
+                    Toast.makeText(ListaUsuariosActivity.this,"Erro: Você ainda não logou",Toast.LENGTH_LONG).show();
+                    return;
+                }List<DtoUser> lista = response.body();
                 preencherRecyclerview(lista);
             }
 
