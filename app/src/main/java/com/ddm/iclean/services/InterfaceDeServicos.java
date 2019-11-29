@@ -38,5 +38,5 @@ public interface InterfaceDeServicos {
     Call<ResponseEntitity<DtoAnuncio>> buscarAnuncios();
 
     @GET("/anuncios/titulo?titulo={titulo}")
-    Call<List<DtoAnuncio>> buscarAnunciosPalavra(@Path("titulo") String titulo);
+    Call<ResponseEntitity<DtoAnuncio>> buscarAnunciosPalavra(@Path("titulo") String palavra);
 }

@@ -103,21 +103,20 @@ public class MainActivity extends AppCompatActivity {
     public void pesquisar(View view){
         String pesquisar = ((EditText)findViewById(R.id.text_input_pesquisar)).getText().toString();
 
-        RetrofitService.getServico(this).buscarAnunciosPalavra(pesquisar).enqueue(new Callback<List<DtoAnuncio>>() {
+        RetrofitService.getServico(this).buscarAnunciosPalavra(pesquisar).enqueue(new Callback<ResponseEntitity<DtoAnuncio>>() {
             @Override
-            public void onResponse(Call<List<DtoAnuncio>> call, Response<List<DtoAnuncio>> response) {
+            public void onResponse(Call<ResponseEntitity<DtoAnuncio>> call, Response<ResponseEntitity<DtoAnuncio>> response) {
                 if(response.body() == null) {
                     Toast.makeText(MainActivity.this, "não consegui buscar os anuncios", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 anuncios.clear();
-                anuncios.addAll(response.body());
+                anuncios.addAll(response.body().getContent());
                 preencherRecyclerView();
             }
 
             @Override
-            public void onFailure(Call<List<DtoAnuncio>> call, Throwable t) {
-                System.out.println("teste");
+            public void onFailure(Call<ResponseEntitity<DtoAnuncio>> call, Throwable t) {
             }
         });
     }
