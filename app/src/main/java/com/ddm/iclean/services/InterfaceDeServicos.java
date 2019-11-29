@@ -7,6 +7,7 @@ import com.ddm.iclean.entity.ResponseEntitity;
 
 import java.util.List;
 
+import kotlin.ParameterName;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -36,6 +37,6 @@ public interface InterfaceDeServicos {
     @GET("/anuncios")
     Call<ResponseEntitity<DtoAnuncio>> buscarAnuncios();
 
-    @GET("/anuncios/palavrachave/{titulo}")
-    Call<List<DtoAnuncio>> buscarAnunciosPalavra(@Path("titulo")String titulo);
+    @GET("/anuncios/titulo?titulo={titulo}")
+    Call<List<DtoAnuncio>> buscarAnunciosPalavra(@Path("titulo") String titulo);
 }
