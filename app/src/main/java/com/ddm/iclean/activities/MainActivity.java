@@ -1,18 +1,38 @@
 package com.ddm.iclean.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.ddm.iclean.R;
+import com.ddm.iclean.dto.DtoAnuncio;
+import com.ddm.iclean.entity.ResponseEntitity;
+import com.ddm.iclean.helpers.AnuncioAdapter;
+import com.ddm.iclean.services.RetrofitService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.http.Path;
 
 public class MainActivity extends AppCompatActivity {
+    List<DtoAnuncio> anuncios = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        buscarAnuncios();
     }
 
     @Override
@@ -51,5 +72,53 @@ public class MainActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void buscarAnuncios(){
+        RetrofitService.getServico(this).buscarAnuncios().enqueue(new Callback<ResponseEntitity<DtoAnuncio>>() {
+            @Override
+            public void onResponse(Call<ResponseEntitity<DtoAnuncio>> call, Response<ResponseEntitity<DtoAnuncio>> response) {
+                if(response.body() == null) {
+                    Toast.makeText(MainActivity.this, "não consegui buscar os anuncios", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                anuncios.addAll(response.body().getContent());
+                preencherRecyclerView();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseEntitity<DtoAnuncio>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void preencherRecyclerView() {
+        RecyclerView recyclerView= findViewById(R.id.rv_todos_anuncios);
+        AnuncioAdapter anuncioAdapter = new AnuncioAdapter(this, anuncios);
+        recyclerView.setAdapter(anuncioAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+    public void pesquisar(View view){
+        String pesquisar = ((EditText)findViewById(R.id.text_input_pesquisar)).getText().toString();
+
+        RetrofitService.getServico(this).buscarAnunciosPalavra(pesquisar).enqueue(new Callback<List<DtoAnuncio>>() {
+            @Override
+            public void onResponse(Call<List<DtoAnuncio>> call, Response<List<DtoAnuncio>> response) {
+                if(response.body() == null) {
+                    Toast.makeText(MainActivity.this, "não consegui buscar os anuncios", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                anuncios.clear();
+                anuncios.addAll(response.body());
+                preencherRecyclerView();
+            }
+
+            @Override
+            public void onFailure(Call<List<DtoAnuncio>> call, Throwable t) {
+                System.out.println("teste");
+            }
+        });
     }
 }

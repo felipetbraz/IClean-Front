@@ -38,6 +38,10 @@ public class LoginActivity extends AppCompatActivity {
         RetrofitService.getServico(this).login(dtoLogin).enqueue(new Callback<DtoLogin>() {
             @Override
             public void onResponse(Call<DtoLogin> call, Response<DtoLogin> response) {
+                if(response.body() == null){
+                    Toast.makeText(LoginActivity.this,"Usuario e/ou senha incorreta",Toast.LENGTH_LONG).show();
+                    return;
+                }
                 String token = response.body().getToken();
                 Toast.makeText(LoginActivity.this, "Usuário logado", Toast.LENGTH_SHORT).show();
 

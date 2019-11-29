@@ -50,7 +50,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter <UsuarioAdapter.Usuario
         return lista.size();
     }
 
-    public class UsuarioHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class UsuarioHolder extends RecyclerView.ViewHolder{
         final UsuarioAdapter usuarioAdapter;
         public final TextView nome;
 
@@ -60,7 +60,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter <UsuarioAdapter.Usuario
             nome = itemView.findViewById(R.id.tv_recyclerview_nome_usuario);
         }
 
-        @Override
+        /*@Override
         public void onClick(View v){
             DtoUser user = lista.get(getLayoutPosition());
             String nome = user.getNome();
@@ -73,6 +73,6 @@ public class UsuarioAdapter extends RecyclerView.Adapter <UsuarioAdapter.Usuario
             intent.putExtra("cpf", cpf);
             intent.putExtra("email", email);
             context.startActivity(intent);
-        }
+        }*/
     }
 }

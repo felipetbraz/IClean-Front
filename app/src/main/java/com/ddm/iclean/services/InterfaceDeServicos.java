@@ -1,10 +1,13 @@
 package com.ddm.iclean.services;
 
+import com.ddm.iclean.dto.DtoAnuncio;
 import com.ddm.iclean.dto.DtoLogin;
 import com.ddm.iclean.dto.DtoUser;
+import com.ddm.iclean.entity.ResponseEntitity;
 
 import java.util.List;
 
+import kotlin.ParameterName;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -30,4 +33,10 @@ public interface InterfaceDeServicos {
 
     @DELETE("/usuarios/{id}")
     Call<Void> excluirUsuario(@Path("id") int id, @Header("Authorization") String token);
+
+    @GET("/anuncios")
+    Call<ResponseEntitity<DtoAnuncio>> buscarAnuncios();
+
+    @GET("/anuncios/titulo?titulo={titulo}")
+    Call<List<DtoAnuncio>> buscarAnunciosPalavra(@Path("titulo") String titulo);
 }
