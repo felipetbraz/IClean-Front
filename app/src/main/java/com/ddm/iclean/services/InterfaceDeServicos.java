@@ -27,12 +27,15 @@ public interface InterfaceDeServicos {
     @GET("/usuarios")
     Call<List<DtoUser>> todosUsuarios(@Header("Authorization") String authorization);
 
-    @GET("/anuncios")
-    Call<ResponseEntitity<DtoAnuncio>> buscarAnuncios();
-
     @PUT("/usuarios/{id}")
     Call<DtoUser> alteraUsuario(@Body DtoUser user, @Path("id") int id, @Header("Authorization") String authorization);
 
     @DELETE("/usuarios/{id}")
     Call<Void> excluirUsuario(@Path("id") int id, @Header("Authorization") String token);
+
+    @GET("/anuncios")
+    Call<ResponseEntitity<DtoAnuncio>> buscarAnuncios();
+
+    @GET("/anuncios/palavrachave/{titulo}")
+    Call<List<DtoAnuncio>> buscarAnunciosPalavra(@Path("titulo")String titulo);
 }
