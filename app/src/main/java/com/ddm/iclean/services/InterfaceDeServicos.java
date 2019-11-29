@@ -16,6 +16,7 @@ import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface InterfaceDeServicos {
 
@@ -37,6 +38,8 @@ public interface InterfaceDeServicos {
     @GET("/anuncios")
     Call<ResponseEntitity<DtoAnuncio>> buscarAnuncios();
 
-    @GET("/anuncios/titulo?titulo={titulo}")
-    Call<ResponseEntitity<DtoAnuncio>> buscarAnunciosPalavra(@Path("titulo") String palavra);
+    //@GET("/anuncios/titulo?palavra={palavra}")
+    @GET("/anuncios/titulo")
+    Call<ResponseEntitity<DtoAnuncio>> buscarAnunciosPalavra(@Query("palavra") String palavra);
+//    Call<ResponseEntitity<DtoAnuncio>> buscarAnunciosPalavra();
 }
