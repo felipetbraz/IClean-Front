@@ -1,7 +1,7 @@
 package com.ddm.iclean.dto;
 
 public class DtoAnuncio {
-    private Long id;
+
     private String titulo;
     private String descricao;
     private Double preco;
@@ -9,9 +9,8 @@ public class DtoAnuncio {
     private Long usuarioId;
     private Long especialidadeId;
 
-    public DtoAnuncio(Long id, String titulo, String descricao, Double preco, Boolean status, Long usuarioId, Long especialidadeId) {
+    public DtoAnuncio(String titulo, String descricao, Double preco, Boolean status, Long usuarioId, Long especialidadeId) {
         super();
-        this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.preco = preco;
@@ -20,13 +19,6 @@ public class DtoAnuncio {
         this.especialidadeId = especialidadeId;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getTitulo() {
         return titulo;

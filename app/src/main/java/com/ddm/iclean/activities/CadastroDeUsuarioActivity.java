@@ -18,7 +18,7 @@ import retrofit2.Response;
 
 public class CadastroDeUsuarioActivity extends AppCompatActivity {
 
-    private static final String TAG = "CadastroDeUsuarioActivi";
+    private static final String TAG = "CadastroDeUsuarioActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

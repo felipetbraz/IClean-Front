@@ -38,8 +38,9 @@ public interface InterfaceDeServicos {
     @GET("/anuncios")
     Call<ResponseEntitity<DtoAnuncio>> buscarAnuncios();
 
-    //@GET("/anuncios/titulo?palavra={palavra}")
     @GET("/anuncios/titulo")
     Call<ResponseEntitity<DtoAnuncio>> buscarAnunciosPalavra(@Query("palavra") String palavra);
-//    Call<ResponseEntitity<DtoAnuncio>> buscarAnunciosPalavra();
+
+    @POST("/anuncios")
+    Call<DtoAnuncio> cadastraAnuncio(@Body DtoAnuncio dtoAnuncio, @Header("Authorization") String token);
 }
