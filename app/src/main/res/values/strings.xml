@@ -7,4 +7,7 @@
     <string name="senha">Senha</string>
     <string name="salvar">Salvar</string>
     <string name="cpf">CPF</string>
+    <string name="titulo">Titulo</string>
+    <string name="descricao">Descrição</string>
+    <string name="preco">Preço</string>
 </resources>
