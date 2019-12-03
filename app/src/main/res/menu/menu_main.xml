@@ -19,15 +19,15 @@
         android:title="Cadastro de Anuncio"
         app:showAsAction="never" />
 
-    <item
+    <!--<item
         android:id="@+id/action_excluir_usuario"
         android:icon="@drawable/ic_action_excluir_usuario"
         android:title="Excluir Usuário"
-        app:showAsAction="never" />
+        app:showAsAction="never" />-->
     <item
         android:id="@+id/action_lista_usuarios"
         android:icon="@drawable/ic_action_lista_usuarios"
-        android:title="Todos"
+        android:title="Todos Usuarios"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_login"
