@@ -42,11 +42,13 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this,"Usuario e/ou senha incorreta",Toast.LENGTH_LONG).show();
                     return;
                 }
+                Long id = response.body().getId();
                 String token = response.body().getToken();
                 Toast.makeText(LoginActivity.this, "Usuário logado", Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(LoginActivity.this, id.toString(), Toast.LENGTH_SHORT).show();
                 SharedPreferences sp = getSharedPreferences("dados", 0);
                 SharedPreferences.Editor editor = sp.edit();
+                editor.putLong("id", id);
                 editor.putString("token", token);
                 editor.apply();
 
