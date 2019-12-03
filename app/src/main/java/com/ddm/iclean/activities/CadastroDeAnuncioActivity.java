@@ -27,10 +27,10 @@ public class CadastroDeAnuncioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_de_anuncio);
     }
 
-    public void Cadastrar(View view) {
+    public void CadastrarAnuncio(View view) {
         String titulo = ((EditText) findViewById(R.id.et_cadastro_anuncio_titulo)).getText().toString();
         String descricao = ((EditText) findViewById(R.id.et_cadastro_anuncio_descricao)).getText().toString();
-        Double preco = Double.valueOf((findViewById(R.id.et_cadastro_anuncio_preco)).getContext().toString());
+        Double preco =Double.valueOf(((EditText) findViewById(R.id.et_cadastro_anuncio_preco)).getText().toString());
         Long usuId = Long.valueOf("1");
 
         SharedPreferences sp = getSharedPreferences("dados", 0);

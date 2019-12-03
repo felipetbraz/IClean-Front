@@ -49,6 +49,13 @@
                 android:value=".activities.MainActivity"/>
         </activity>
         <activity
+            android:name=".activities.CadastroDeAnuncioActivity"
+            android:label="Cadastro de anuncio"
+            android:parentActivityName=".activities.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity"/>
+        </activity>
+        <activity
             android:name=".activities.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">

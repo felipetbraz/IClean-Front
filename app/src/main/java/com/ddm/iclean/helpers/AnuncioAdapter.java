@@ -47,7 +47,7 @@ public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioH
         return lista.size();
     }
 
-    public class AnuncioHolder extends RecyclerView.ViewHolder {
+    public class AnuncioHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         final AnuncioAdapter anuncioAdapter;
         public final TextView titulo;
 
@@ -57,5 +57,9 @@ public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioH
             titulo = itemView.findViewById(R.id.tv_recyclerview_titulo_anuncio);
         }
 
+        @Override
+        public void onClick(View v) {
+
+        }
     }
 }
