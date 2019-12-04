@@ -1,5 +1,6 @@
 package com.ddm.iclean.activities;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,6 +33,7 @@ public class CadastroDeAnuncioActivity extends AppCompatActivity {
         String descricao = ((EditText) findViewById(R.id.et_cadastro_anuncio_descricao)).getText().toString();
         Double preco =Double.valueOf(((EditText) findViewById(R.id.et_cadastro_anuncio_preco)).getText().toString());
         Long asdf = Long.valueOf("1");
+
         SharedPreferences sp = getSharedPreferences("dados", 0);
         String token = sp.getString("token", null);
         Long id = sp.getLong("id", asdf);
@@ -41,6 +43,7 @@ public class CadastroDeAnuncioActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<DtoAnuncio> call, Response<DtoAnuncio> response) {
                 Toast.makeText(CadastroDeAnuncioActivity.this, "Anuncio cadastrado", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(CadastroDeAnuncioActivity.this, MainActivity.class));
             }
 
             @Override

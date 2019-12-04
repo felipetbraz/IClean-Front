@@ -1,18 +1,24 @@
 package com.ddm.iclean.helpers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ddm.iclean.R;
+import com.ddm.iclean.activities.LoginActivity;
+import com.ddm.iclean.activities.MainActivity;
 import com.ddm.iclean.dto.DtoAnuncio;
 
 import java.util.List;
+
+import static androidx.core.content.ContextCompat.startActivity;
 
 public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioHolder> {
     private LayoutInflater mInflater;
@@ -28,7 +34,6 @@ public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioH
         mInflater = LayoutInflater.from(context);
     }
 
-
     @NonNull
     @Override
     public AnuncioAdapter.AnuncioHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,7 +44,9 @@ public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioH
     @Override
     public void onBindViewHolder(@NonNull AnuncioAdapter.AnuncioHolder holder, int position) {
         String titulo = lista.get(position).getTitulo();
+        String preco = lista.get(position).getPreco().toString();
         holder.titulo.setText(titulo);
+        holder.preco.setText(preco);
     }
 
     @Override
@@ -50,11 +57,13 @@ public class AnuncioAdapter extends RecyclerView.Adapter<AnuncioAdapter.AnuncioH
     public class AnuncioHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         final AnuncioAdapter anuncioAdapter;
         public final TextView titulo;
+        public final TextView preco;
 
         public AnuncioHolder(@NonNull View itemView, AnuncioAdapter anuncioAdapter) {
             super(itemView);
             this.anuncioAdapter = anuncioAdapter;
             titulo = itemView.findViewById(R.id.tv_recyclerview_titulo_anuncio);
+            preco = itemView.findViewById(R.id.tv_recyclerview_preco_anuncio);
         }
 
         @Override
