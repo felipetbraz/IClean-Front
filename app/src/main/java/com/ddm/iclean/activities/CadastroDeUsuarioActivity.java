@@ -27,7 +27,7 @@ public class CadastroDeUsuarioActivity extends AppCompatActivity {
     }
 
     public void Cadastrar(View view) {
-        String nome = ((EditText) findViewById(R.id.et_cadastro_usuario_nome)).getText().toString();
+        String nome = ((EditText) findViewById(R.id.et_cadastro_usuario_nome)).getText().toString().trim();
         String cpf = ((EditText) findViewById(R.id.et_cadastro_usuario_cpf)).getText().toString();
         String email = ((EditText) findViewById(R.id.et_cadastro_usuario_email)).getText().toString();
         String senha = ((EditText) findViewById(R.id.et_cadastro_usuario_senha)).getText().toString();

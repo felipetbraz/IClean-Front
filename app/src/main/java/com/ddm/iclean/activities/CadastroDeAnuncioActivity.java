@@ -32,11 +32,12 @@ public class CadastroDeAnuncioActivity extends AppCompatActivity {
         String titulo = ((EditText) findViewById(R.id.et_cadastro_anuncio_titulo)).getText().toString();
         String descricao = ((EditText) findViewById(R.id.et_cadastro_anuncio_descricao)).getText().toString();
         Double preco =Double.valueOf(((EditText) findViewById(R.id.et_cadastro_anuncio_preco)).getText().toString());
-        Long asdf = Long.valueOf("1");
+        Long asdf = Long.valueOf("-1");
 
         SharedPreferences sp = getSharedPreferences("dados", 0);
         String token = sp.getString("token", null);
         Long id = sp.getLong("id", asdf);
+
         DtoAnuncio dtoAnuncio = new DtoAnuncio(titulo,descricao,preco,true,id,asdf);
 
         RetrofitService.getServico(this).cadastraAnuncio(dtoAnuncio,token).enqueue(new Callback<DtoAnuncio>() {

@@ -11,10 +11,18 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/tv_recyclerview_id_anuncio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:textAlignment="textStart"/>
+
+        <TextView
             android:id="@+id/tv_recyclerview_titulo_anuncio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="80"/>
+            android:layout_weight="70"
+            android:textAlignment="textStart" />
 
         <TextView
             android:id="@+id/tv_recyclerview_preco_anuncio"

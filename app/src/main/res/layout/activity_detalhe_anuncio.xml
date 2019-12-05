@@ -14,20 +14,27 @@
     android:id="@+id/boxGeral">
 
     <TextView
-        android:id="@+id/nomeAnuncio"
+        android:id="@+id/tituloAnuncio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_marginBottom="20dp"
-        android:padding="15dp"/>
+        android:padding="15dp"
+        android:focusable="false"
+        android:enabled="true"
+        android:textSize="32dp"
+        />
 
     <TextView
-        android:id="@+id/detalheAnuncio"
+        android:id="@+id/descricaoAnuncio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_marginBottom="20dp"
-        android:padding="15dp"/>
+        android:padding="15dp"
+        android:focusable="false"
+        android:enabled="true"
+        android:textSize="20dp"/>
 
     <TextView
         android:id="@+id/precoAnuncio"
@@ -35,7 +42,10 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_marginBottom="20dp"
-        android:padding="15dp"/>
+        android:padding="15dp"
+        android:focusable="false"
+        android:enabled="true"
+        android:textSize="20dp"/>
 
 
 </LinearLayout>]

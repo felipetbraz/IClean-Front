@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(anuncioAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
+
     public void pesquisar(View view){
         String pesquisar = ((EditText)findViewById(R.id.text_input_pesquisar)).getText().toString();
 

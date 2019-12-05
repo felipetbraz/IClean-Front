@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,29 +25,16 @@ public class DetalheAnuncioActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro_de_usuario);
+        setContentView(R.layout.activity_detalhe_anuncio);
         Intent intent = getIntent();
-        String nome = intent.getStringExtra("nome");
-        String cpf = intent.getStringExtra("cpf");
-        String email = intent.getStringExtra("email");
-    }
 
-    public void Cadastrar(View view){
-        String nome = ((EditText) findViewById(R.id.et_cadastro_usuario_nome)).getText().toString();
-        String cpf = ((EditText) findViewById(R.id.et_cadastro_usuario_cpf)).getText().toString();
-        String email = ((EditText) findViewById(R.id.et_cadastro_usuario_email)).getText().toString();
-        String senha = ((EditText) findViewById(R.id.et_cadastro_usuario_senha)).getText().toString();
-        DtoUser dtoUser;
-        if(senha.isEmpty())
-            dtoUser = new DtoUser(nome, cpf, email);
-        else
-            dtoUser = new DtoUser(nome, cpf, senha, email);
-        String token = getToken();
+        int nome = intent.getIntExtra("id",-1);
+        Double preco = intent.getDoubleExtra("preco",1.1);
+        String titulo = intent.getStringExtra("titulo");
+        String descricao = intent.getStringExtra("descricao");
 
-    }
-
-    private String getToken(){
-        SharedPreferences sp = getSharedPreferences("dados", 0);
-        return sp.getString("token", null);
+        ((TextView)findViewById(R.id.descricaoAnuncio)).setText("descrição: "+descricao);
+        ((TextView)findViewById(R.id.precoAnuncio)).setText("Preço: "+preco);
+        ((TextView)findViewById(R.id.tituloAnuncio)).setText(titulo+"");
     }
 }

@@ -59,20 +59,5 @@ public class UsuarioAdapter extends RecyclerView.Adapter <UsuarioAdapter.Usuario
             this.usuarioAdapter = usuarioAdapter;
             nome = itemView.findViewById(R.id.tv_recyclerview_nome_usuario);
         }
-
-        /*@Override
-        public void onClick(View v){
-            DtoUser user = lista.get(getLayoutPosition());
-            String nome = user.getNome();
-            int id = user.getId();
-            String cpf = user.getCpf();
-            String email = user.getEmail();
-            Intent intent = new Intent(context, AlteracaoUsuarioActivity.class);
-            intent.putExtra("id", id);
-            intent.putExtra("nome", nome);
-            intent.putExtra("cpf", cpf);
-            intent.putExtra("email", email);
-            context.startActivity(intent);
-        }*/
     }
 }
