@@ -17,7 +17,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CadastroDeUsuarioActivity extends AppCompatActivity {
-
     private static final String TAG = "CadastroDeUsuarioActivity";
 
     @Override

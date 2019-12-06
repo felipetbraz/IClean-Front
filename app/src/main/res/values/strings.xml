@@ -13,4 +13,10 @@
     <string name="detalhe_anuncio">Detalhe de anúncio</string>
     <string name="data_para_o_servi_o_dd_mm_aaaa">Data para o serviço dd/mm/aaaa</string>
     <string name="confirmar">Confirmar</string>
+    <string name="logradouro">Logradouro</string>
+    <string name="complemento">Complemento</string>
+    <string name="cidade">Cidade</string>
+    <string name="numero">Número</string>
+    <string name="estado">Estado</string>
+    <string name="cep">CEP</string>
 </resources>

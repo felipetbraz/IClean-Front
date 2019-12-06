@@ -33,6 +33,17 @@
         android:icon="@drawable/ic_action_lista_usuarios"
         android:title="Todos Usuarios"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_lista_enderecos"
+        android:icon="@drawable/ic_action_lista_enderecos"
+        android:title="Meus Endereços"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_cadastro_de_endereco"
+        android:icon="@drawable/ic_action_cadastro_de_enderecos"
+        android:title="Cadastro de Endereço"
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_login"
         android:icon="@drawable/ic_action_login"

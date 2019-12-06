@@ -64,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_cadastro_de_anuncio:
                 startActivity(new Intent(this, CadastroDeAnuncioActivity.class));
                 return true;
+            case R.id.action_cadastro_de_endereco:
+                startActivity(new Intent(this, CadastroDeEnderecoActivity.class));
+                return true;
             /*case R.id.action_excluir_usuario:
                 startActivity(new Intent(this, ExcluirUsuarioActivity.class));
                 return true;*/
