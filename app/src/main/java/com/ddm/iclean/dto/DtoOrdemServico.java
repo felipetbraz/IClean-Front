@@ -7,14 +7,16 @@ public class DtoOrdemServico {
     private Date dataInclusao;
     private int avaliacaoCliente;
     private int avaliacaoPrestador;
+    private String status;
     private Long clienteId;
     private Long enderecoId;
     private Long anuncioId;
 
-    public DtoOrdemServico(Long id, Date dataInclusao,int avaliacaoCliente,
+    public DtoOrdemServico(Long id, String status ,Date dataInclusao,int avaliacaoCliente,
                            int avaliacaoPrestador, Long clienteId, Long enderecoId, Long anuncioId) {
         super();
         this.id = id;
+        this.status = status;
         this.dataInclusao = dataInclusao;
         this.avaliacaoCliente = avaliacaoCliente;
         this.avaliacaoPrestador = avaliacaoPrestador;
@@ -34,6 +36,10 @@ public class DtoOrdemServico {
         this.enderecoId = enderecoId;
         this.anuncioId = anuncioId;
     }
+
+    public String getStatus() {return status;};
+
+    public void setStatus(String status){this.status = status;};
 
     public Long getId() {
         return id;

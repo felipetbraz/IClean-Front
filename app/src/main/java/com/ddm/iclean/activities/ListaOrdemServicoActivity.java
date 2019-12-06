@@ -34,6 +34,13 @@ public class ListaOrdemServicoActivity extends AppCompatActivity {
         buscarOrdensServico();
     }
 
+    private void preencherRecyclerView() {
+        RecyclerView recyclerView= findViewById(R.id.action_listar_orderm_servico);
+        OrdemServicoAdapter ordemServicoAdapter = new OrdemServicoAdapter(this, ordemServicos);
+        recyclerView.setAdapter(ordemServicoAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
     public void buscarOrdensServico(){
         SharedPreferences sp = getSharedPreferences("dados", 0);
         String token = sp.getString("token", null);
@@ -46,6 +53,7 @@ public class ListaOrdemServicoActivity extends AppCompatActivity {
                     return;
                 }
 
+                ordemServicos.clear();
                 ordemServicos.addAll(response.body().getContent());
                 preencherRecyclerView();
             }
@@ -55,13 +63,6 @@ public class ListaOrdemServicoActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    private void preencherRecyclerView() {
-        RecyclerView recyclerView= findViewById(R.id.action_listar_orderm_servico);
-        OrdemServicoAdapter ordemServicoAdapter = new OrdemServicoAdapter(this, ordemServicos);
-        recyclerView.setAdapter(ordemServicoAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
 }
