@@ -41,13 +41,14 @@ public class ListaUsuariosActivity extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("dados", 0);
         String token = sp.getString("token", null);
 
-        RetrofitService.getServico(this).todosUsuarios("Bearer "+token).enqueue(new Callback<List<DtoUser>>() {
+        RetrofitService.getServico(this).todosUsuarios(token).enqueue(new Callback<List<DtoUser>>() {
             @Override
             public void onResponse(Call<List<DtoUser>> call, Response<List<DtoUser>> response) {
                 if(response.body() == null){
                     Toast.makeText(ListaUsuariosActivity.this,"Erro: Você ainda não logou",Toast.LENGTH_LONG).show();
                     return;
-                }List<DtoUser> lista = response.body();
+                }
+                List<DtoUser> lista = response.body();
                 preencherRecyclerview(lista);
             }
 

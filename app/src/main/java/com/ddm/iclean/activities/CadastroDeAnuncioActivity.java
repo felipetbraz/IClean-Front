@@ -38,7 +38,7 @@ public class CadastroDeAnuncioActivity extends AppCompatActivity {
         String token = sp.getString("token", null);
         Long id = sp.getLong("id", asdf);
 
-        DtoAnuncio dtoAnuncio = new DtoAnuncio(titulo,descricao,preco,true,id,asdf);
+        DtoAnuncio dtoAnuncio = new DtoAnuncio(titulo,descricao,preco,true,id, Long.valueOf("1"));
 
         RetrofitService.getServico(this).cadastraAnuncio(dtoAnuncio,token).enqueue(new Callback<DtoAnuncio>() {
             @Override

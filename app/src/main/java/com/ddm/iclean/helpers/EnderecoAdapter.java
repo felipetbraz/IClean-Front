@@ -57,4 +57,5 @@ public class EnderecoAdapter extends RecyclerView.Adapter <EnderecoAdapter.Ender
             logradouro = itemView.findViewById(R.id.tv_recyclerview_logradouro_endereco);
         }
     }
+
 }
