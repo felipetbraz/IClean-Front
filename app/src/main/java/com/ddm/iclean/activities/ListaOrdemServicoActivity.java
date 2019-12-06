@@ -25,7 +25,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ListaOrdemServicoActivity extends AppCompatActivity {
-    List ordemServicos = new ArrayList<>();
+    List<DtoOrdemServico>  lista = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,32 +35,32 @@ public class ListaOrdemServicoActivity extends AppCompatActivity {
     }
 
     private void preencherRecyclerView() {
-        RecyclerView recyclerView= findViewById(R.id.action_listar_orderm_servico);
-        OrdemServicoAdapter ordemServicoAdapter = new OrdemServicoAdapter(this, ordemServicos);
-        recyclerView.setAdapter(ordemServicoAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        RecyclerView mRecyclerView= findViewById(R.id.rv_todos_ordem);
+        OrdemServicoAdapter mAdapter = new OrdemServicoAdapter(this, lista);
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     public void buscarOrdensServico(){
         SharedPreferences sp = getSharedPreferences("dados", 0);
         String token = sp.getString("token", null);
 
-        RetrofitService.getServico(this).buscaOrdemServicos(token).enqueue(new Callback<ResponseEntitity<DtoOrdemServico>>() {
+        RetrofitService.getServico(this).buscaOrdemServicos(token).enqueue(new Callback<List<DtoOrdemServico>>() {
             @Override
-            public void onResponse(Call<ResponseEntitity<DtoOrdemServico>> call, Response<ResponseEntitity<DtoOrdemServico>> response) {
+            public void onResponse(Call<List<DtoOrdemServico>> call, Response<List<DtoOrdemServico>> response) {
                 if(response.body() == null) {
-                    Toast.makeText(ListaOrdemServicoActivity.this, "não consegui buscar os anuncios", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ListaOrdemServicoActivity.this, "não consegui buscar as ordem de servico", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                ordemServicos.clear();
-                ordemServicos.addAll(response.body().getContent());
+                lista.clear();
+                lista.addAll(response.body());
                 preencherRecyclerView();
             }
 
             @Override
-            public void onFailure(Call<ResponseEntitity<DtoOrdemServico>> call, Throwable t) {
-
+            public void onFailure(Call<List<DtoOrdemServico>> call, Throwable t) {
+                Toast.makeText(ListaOrdemServicoActivity.this, "erro", Toast.LENGTH_SHORT).show();
             }
         });
     }
