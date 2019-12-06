@@ -13,7 +13,20 @@ public class DtoOrdemServico {
 
     public DtoOrdemServico(Long id, Date dataInclusao,int avaliacaoCliente,
                            int avaliacaoPrestador, Long clienteId, Long enderecoId, Long anuncioId) {
+        super();
         this.id = id;
+        this.dataInclusao = dataInclusao;
+        this.avaliacaoCliente = avaliacaoCliente;
+        this.avaliacaoPrestador = avaliacaoPrestador;
+        this.clienteId = clienteId;
+        this.enderecoId = enderecoId;
+        this.anuncioId = anuncioId;
+    }
+
+
+    public DtoOrdemServico(Date dataInclusao,int avaliacaoCliente,
+                           int avaliacaoPrestador, Long clienteId, Long enderecoId, Long anuncioId) {
+        super();
         this.dataInclusao = dataInclusao;
         this.avaliacaoCliente = avaliacaoCliente;
         this.avaliacaoPrestador = avaliacaoPrestador;

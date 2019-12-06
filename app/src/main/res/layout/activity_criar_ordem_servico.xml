@@ -1,65 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <Spinner
-        android:id="@+id/endereco"
-        android:layout_width="409dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:contextClickable="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEndereco" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
 
     <TextView
-        android:id="@+id/textEndereco"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:text="Endereço"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/tituloAnuncio"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text=""
+        android:textSize="25sp"
+        android:layout_margin="5dp"/>
 
     <TextView
-        android:id="@+id/textPagamento"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:text="TextView"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/endereco" />
+        android:id="@+id/precoAnuncio"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text=""
+        android:textSize="25sp"
+        android:layout_margin="5dp"/>
 
-    <Spinner
-        android:id="@+id/pagamento"
-        android:layout_width="409dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:contextClickable="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPagamento" />
+    <TextView
+        android:id="@+id/enderecoServico"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text=""
+        android:textSize="25sp"
+        android:layout_margin="5dp"/>
+
+    <TextView
+        android:id="@+id/dataServico"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="@string/data_para_o_servi_o_dd_mm_aaaa"
+        android:text=""
+        android:textSize="25sp"
+        android:layout_margin="5dp"/>
 
     <Button
-        android:id="@+id/contratar"
-        android:layout_width="0dp"
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Contratar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="@string/confirmar"
+        android:layout_margin="5dp"
+        android:textSize="25sp"/>
+</LinearLayout>

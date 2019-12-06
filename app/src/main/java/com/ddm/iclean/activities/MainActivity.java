@@ -73,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_login:
                 startActivity(new Intent(this, LoginActivity.class));
                 return true;
+            case R.id.action_listar_orderm_servico:
+                startActivity(new Intent(this, ListaOrdemServicoActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

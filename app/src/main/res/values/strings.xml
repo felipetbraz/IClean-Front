@@ -11,4 +11,6 @@
     <string name="descricao">Descrição</string>
     <string name="preco">Preço</string>
     <string name="detalhe_anuncio">Detalhe de anúncio</string>
+    <string name="data_para_o_servi_o_dd_mm_aaaa">Data para o serviço dd/mm/aaaa</string>
+    <string name="confirmar">Confirmar</string>
 </resources>

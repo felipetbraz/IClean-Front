@@ -2,6 +2,7 @@ package com.ddm.iclean.services;
 
 import com.ddm.iclean.dto.DtoAnuncio;
 import com.ddm.iclean.dto.DtoLogin;
+import com.ddm.iclean.dto.DtoOrdemServico;
 import com.ddm.iclean.dto.DtoUser;
 import com.ddm.iclean.entity.ResponseEntitity;
 
@@ -43,4 +44,10 @@ public interface InterfaceDeServicos {
 
     @POST("/anuncios")
     Call<DtoAnuncio> cadastraAnuncio(@Body DtoAnuncio dtoAnuncio, @Header("Authorization") String token);
+
+    @GET("/ordensServicos")
+    Call<ResponseEntitity<DtoOrdemServico>> buscaOrdemServicos(@Header("Authorization") String token);
+
+    @POST("/ordensServicos")
+    Call<DtoOrdemServico> criarOrdemServicos(@Body DtoOrdemServico dtoOrdemServico, @Header("Authorization") String token);
 }
