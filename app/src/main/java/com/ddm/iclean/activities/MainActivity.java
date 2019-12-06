@@ -70,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
             /*case R.id.action_excluir_usuario:
                 startActivity(new Intent(this, ExcluirUsuarioActivity.class));
                 return true;*/
+            case R.id.action_lista_enderecos:
+                startActivity(new Intent(this, ListaEnderecosActivity.class));
+                return true;
             case R.id.action_lista_usuarios:
                 startActivity(new Intent(this, ListaUsuariosActivity.class));
                 return true;

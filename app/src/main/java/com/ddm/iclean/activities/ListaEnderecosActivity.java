@@ -15,6 +15,7 @@ import com.ddm.iclean.entity.ResponseEntitity;
 import com.ddm.iclean.helpers.EnderecoAdapter;
 import com.ddm.iclean.services.RetrofitService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -23,7 +24,7 @@ import retrofit2.Response;
 
 public class ListaEnderecosActivity extends AppCompatActivity {
     private static final String TAG = "ListaEnderecosActivity";
-    List<DtoEndereco> lista;
+    List<DtoEndereco> lista = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class ListaEnderecosActivity extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("dados", 0);
         String token = sp.getString("token", null);
 
-        RetrofitService.getServico(this).todosEnderecos("Bearer "+token).enqueue(new Callback<ResponseEntitity<DtoEndereco>>() {
+        RetrofitService.getServico(this).todosEnderecos(token).enqueue(new Callback<ResponseEntitity<DtoEndereco>>() {
             @Override
             public void onResponse(Call<ResponseEntitity<DtoEndereco>> call, Response<ResponseEntitity<DtoEndereco>> response) {
                 if(response.body() == null){

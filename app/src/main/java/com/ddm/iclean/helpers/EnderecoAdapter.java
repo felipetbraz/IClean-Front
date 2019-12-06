@@ -39,7 +39,9 @@ public class EnderecoAdapter extends RecyclerView.Adapter <EnderecoAdapter.Ender
     @Override
     public void onBindViewHolder(@NonNull EnderecoAdapter.EnderecoHolder holder, int position) {
         String logradouro = lista.get(position).getLogradouro();
+        String numero = lista.get(position).getNumero().toString();
         holder.logradouro.setText(logradouro);
+        holder.numero.setText(numero);
     }
 
     @Override
@@ -50,11 +52,13 @@ public class EnderecoAdapter extends RecyclerView.Adapter <EnderecoAdapter.Ender
     public class EnderecoHolder extends RecyclerView.ViewHolder{
         final EnderecoAdapter enderecoAdapter;
         public final TextView logradouro;
+        public final TextView numero;
 
         public EnderecoHolder (@NonNull View itemView, EnderecoAdapter enderecoAdapter){
             super(itemView);
             this.enderecoAdapter = enderecoAdapter;
             logradouro = itemView.findViewById(R.id.tv_recyclerview_logradouro_endereco);
+            numero = itemView.findViewById(R.id.tv_recyclerview_numero_endereco);
         }
     }
 
