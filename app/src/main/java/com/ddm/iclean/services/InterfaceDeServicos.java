@@ -51,7 +51,8 @@ public interface InterfaceDeServicos {
 
     @POST("/ordensServicos")
     Call<DtoOrdemServico> criarOrdemServicos(@Body DtoOrdemServico dtoOrdemServico, @Header("Authorization") String token);
-    @POST("/endereco")
+
+    @POST("/enderecos")
     Call<DtoEndereco> cadastraEndereco(@Body DtoEndereco dtoEndereco, @Header("Authorization") String token);
 
     @GET("/enderecos")

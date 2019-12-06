@@ -44,6 +44,9 @@ public class CadastroDeEnderecoActivity extends AppCompatActivity {
         RetrofitService.getServico(this).cadastraEndereco(dtoEndereco, token).enqueue(new Callback<DtoEndereco>() {
             @Override
             public void onResponse(Call<DtoEndereco> call, Response<DtoEndereco> response) {
+                if(response.body() == null){
+                    Toast.makeText(CadastroDeEnderecoActivity.this, "Erro", Toast.LENGTH_LONG).show();
+                }
                 Toast.makeText(CadastroDeEnderecoActivity.this, "Endereco cadastrado", Toast.LENGTH_LONG).show();
                 startActivity(new Intent(CadastroDeEnderecoActivity.this, MainActivity.class));
             }

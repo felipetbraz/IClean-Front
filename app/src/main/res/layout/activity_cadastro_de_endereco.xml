@@ -23,6 +23,7 @@
         android:layout_height="45dp"
         android:ems="10"
         android:hint="@string/numero"
+        android:inputType="number"
         android:importantForAutofill="no"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

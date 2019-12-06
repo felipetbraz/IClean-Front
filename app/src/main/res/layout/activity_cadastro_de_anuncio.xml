@@ -35,7 +35,7 @@
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:ems="10"
-        android:inputType="numberPassword"
+        android:inputType="numberDecimal"
         android:hint="@string/preco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
