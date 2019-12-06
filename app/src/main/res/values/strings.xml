@@ -11,4 +11,10 @@
     <string name="descricao">Descrição</string>
     <string name="preco">Preço</string>
     <string name="detalhe_anuncio">Detalhe de anúncio</string>
+    <string name="logradouro">Logradouro</string>
+    <string name="complemento">Complemento</string>
+    <string name="cidade">Cidade</string>
+    <string name="numero">Número</string>
+    <string name="estado">Estado</string>
+    <string name="cep">CEP</string>
 </resources>

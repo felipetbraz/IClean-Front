@@ -70,6 +70,20 @@
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity"/>
         </activity>
+        <activity
+            android:name=".activities.CadastroDeEnderecoActivity"
+            android:label="Cadastro de endereço"
+            android:parentActivityName=".activities.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".activities.ListaEnderecosActivity"
+            android:label="Meus endereços"
+            android:parentActivityName=".activities.MainActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity"/>
+        </activity>
     </application>
 
 </manifest>

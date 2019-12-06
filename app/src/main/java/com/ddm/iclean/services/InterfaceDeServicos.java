@@ -1,6 +1,7 @@
 package com.ddm.iclean.services;
 
 import com.ddm.iclean.dto.DtoAnuncio;
+import com.ddm.iclean.dto.DtoEndereco;
 import com.ddm.iclean.dto.DtoLogin;
 import com.ddm.iclean.dto.DtoUser;
 import com.ddm.iclean.entity.ResponseEntitity;
@@ -43,4 +44,10 @@ public interface InterfaceDeServicos {
 
     @POST("/anuncios")
     Call<DtoAnuncio> cadastraAnuncio(@Body DtoAnuncio dtoAnuncio, @Header("Authorization") String token);
+
+    @POST("/endereco")
+    Call<DtoEndereco> cadastraEndereco(@Body DtoEndereco dtoEndereco, @Header("Authorization") String token);
+
+    @GET("/enderecos")
+    Call<List<DtoEndereco>> todosEnderecos(@Header("Authorization") String authorization);
 }
