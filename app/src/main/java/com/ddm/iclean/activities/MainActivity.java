@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.action_listar_orderm_servico:
                 startActivity(new Intent(this, ListaOrdemServicoActivity.class));
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void pesquisar(View view){
-        String pesquisar = ((EditText)findViewById(R.id.text_input_pesquisar)).getText().toString();
+        String pesquisar = ((EditText)findViewById(R.id.text_input_pesquisar)).getText().toString().toLowerCase();
 
         RetrofitService.getServico(this).buscarAnunciosPalavra(pesquisar).enqueue(new Callback<ResponseEntitity<DtoAnuncio>>() {
             @Override

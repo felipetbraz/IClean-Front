@@ -28,7 +28,6 @@ public class EnderecoAdapter extends RecyclerView.Adapter <EnderecoAdapter.Ender
         mInflater = LayoutInflater.from(context);
     }
 
-
     @NonNull
     @Override
     public EnderecoAdapter.EnderecoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

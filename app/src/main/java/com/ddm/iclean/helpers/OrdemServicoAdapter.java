@@ -16,7 +16,7 @@ import com.ddm.iclean.dto.DtoOrdemServico;
 
 import java.util.List;
 
-public class OrdemServicoAdapter extends RecyclerView.Adapter<OrdemServicoAdapter.OrdemServicoHolder> {
+public class OrdemServicoAdapter extends RecyclerView.Adapter <OrdemServicoAdapter.OrdemServicoHolder> {
     private LayoutInflater mInflater;
     private Context context;
     private List<DtoOrdemServico> lista;
@@ -37,7 +37,6 @@ public class OrdemServicoAdapter extends RecyclerView.Adapter<OrdemServicoAdapte
         return new OrdemServicoHolder(mItemView, this);
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull OrdemServicoHolder holder, int position) {
         String status = lista.get(position).getStatus();
@@ -48,7 +47,7 @@ public class OrdemServicoAdapter extends RecyclerView.Adapter<OrdemServicoAdapte
 
     @Override
     public int getItemCount() {
-        return 0;
+        return lista.size();
     }
 
     public class OrdemServicoHolder extends RecyclerView.ViewHolder {

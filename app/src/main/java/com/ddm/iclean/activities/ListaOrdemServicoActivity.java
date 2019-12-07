@@ -2,6 +2,7 @@ package com.ddm.iclean.activities;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ListaOrdemServicoActivity extends AppCompatActivity {
+    private static final String TAG = "ListaOrdemServicoActivity";
     List<DtoOrdemServico>  lista = new ArrayList<>();
 
     @Override
@@ -35,7 +37,7 @@ public class ListaOrdemServicoActivity extends AppCompatActivity {
     }
 
     private void preencherRecyclerView() {
-        RecyclerView mRecyclerView= findViewById(R.id.rv_todos_ordem);
+        RecyclerView mRecyclerView = findViewById(R.id.rv_todos_ordem);
         OrdemServicoAdapter mAdapter = new OrdemServicoAdapter(this, lista);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -61,6 +63,7 @@ public class ListaOrdemServicoActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<DtoOrdemServico>> call, Throwable t) {
                 Toast.makeText(ListaOrdemServicoActivity.this, "erro", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onFailure: " + t.getMessage());
             }
         });
     }
