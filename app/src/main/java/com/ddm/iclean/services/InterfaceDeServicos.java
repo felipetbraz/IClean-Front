@@ -55,6 +55,6 @@ public interface InterfaceDeServicos {
     @POST("/enderecos")
     Call<DtoEndereco> cadastraEndereco(@Body DtoEndereco dtoEndereco, @Header("Authorization") String token);
 
-    @GET("/enderecos")
-    Call<ResponseEntitity<DtoEndereco>> todosEnderecos(@Header("Authorization") String authorization);
+    @GET("/enderecos/meusenderecos")
+    Call<List<DtoEndereco>> todosEnderecos(@Header("Authorization") String authorization);
 }

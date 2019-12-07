@@ -43,21 +43,22 @@ public class ListaEnderecosActivity extends AppCompatActivity {
     private void buscaDados(){
         SharedPreferences sp = getSharedPreferences("dados", 0);
         String token = sp.getString("token", null);
+        Long id = sp.getLong("id", Long.valueOf("1"));
 
-        RetrofitService.getServico(this).todosEnderecos(token).enqueue(new Callback<ResponseEntitity<DtoEndereco>>() {
+        RetrofitService.getServico(this).todosEnderecos(token).enqueue(new Callback<List<DtoEndereco>>() {
             @Override
-            public void onResponse(Call<ResponseEntitity<DtoEndereco>> call, Response<ResponseEntitity<DtoEndereco>> response) {
+            public void onResponse(Call<List<DtoEndereco>> call, Response<List<DtoEndereco>> response) {
                 if(response.body() == null){
                     Toast.makeText(ListaEnderecosActivity.this,"Erro: Você ainda não logou",Toast.LENGTH_LONG).show();
                     return;
                 }
                 lista.clear();
-                lista.addAll(response.body().getContent());
+                lista.addAll(response.body());
                 preencherRecyclerview();
             }
 
             @Override
-            public void onFailure(Call<ResponseEntitity<DtoEndereco>> call, Throwable t) {
+            public void onFailure(Call<List<DtoEndereco>> call, Throwable t) {
                 Log.d(TAG, "onFailure: " + t.getMessage());
             }
         });
