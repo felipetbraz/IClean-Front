@@ -3,17 +3,17 @@ package com.ddm.iclean.dto;
 import java.util.Date;
 
 public class DtoOrdemServico {
-    private Long id;
+    private long id;
     private Date dataInclusao;
     private int avaliacaoCliente;
     private int avaliacaoPrestador;
     private String status;
-    private Long clienteId;
-    private Long enderecoId;
-    private Long anuncioId;
+    private long clienteId;
+    private long enderecoId;
+    private long anuncioId;
 
-    public DtoOrdemServico(Long id, String status ,Date dataInclusao,int avaliacaoCliente,
-                           int avaliacaoPrestador, Long clienteId, Long enderecoId, Long anuncioId) {
+    public DtoOrdemServico(long id, String status ,Date dataInclusao,int avaliacaoCliente,
+                           int avaliacaoPrestador, long clienteId, long enderecoId, long anuncioId) {
         super();
         this.id = id;
         this.status = status;
@@ -26,15 +26,14 @@ public class DtoOrdemServico {
     }
 
 
-    public DtoOrdemServico(Date dataInclusao,int avaliacaoCliente,
-                           int avaliacaoPrestador, Long clienteId, Long enderecoId, Long anuncioId) {
+    public DtoOrdemServico(Date dateEnv, int avaliacaoCliente, int avaliacaoPrestador, long clienteId, long enderecoId, long anuncioId) {
         super();
         this.dataInclusao = dataInclusao;
-        this.avaliacaoCliente = avaliacaoCliente;
-        this.avaliacaoPrestador = avaliacaoPrestador;
-        this.clienteId = clienteId;
-        this.enderecoId = enderecoId;
-        this.anuncioId = anuncioId;
+        this.avaliacaoCliente = this.avaliacaoCliente;
+        this.avaliacaoPrestador = this.avaliacaoPrestador;
+        this.clienteId = this.clienteId;
+        this.enderecoId = this.enderecoId;
+        this.anuncioId = this.anuncioId;
     }
 
     public String getStatus() {return status;};

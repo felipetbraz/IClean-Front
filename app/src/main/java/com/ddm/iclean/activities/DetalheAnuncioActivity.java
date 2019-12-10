@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +15,8 @@ import com.ddm.iclean.R;
 import com.ddm.iclean.dto.DtoOrdemServico;
 import com.ddm.iclean.services.RetrofitService;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -40,27 +44,37 @@ public class DetalheAnuncioActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.tituloAnuncio)).setText(titulo+"");
     }
 
-    public void contratarOrdemServico(View view) {
+    public void contratarOrdemServico() throws ParseException {
         SharedPreferences sp = getSharedPreferences("dados", 0);
         String token = sp.getString("token", null);
-        Long id = sp.getLong("id", Long.valueOf("1"));
+        long id = 2;
 
-        Date currentTime = Calendar.getInstance().getTime();
-        DateFormat df = new DateFormat();
-        
+        String data = "20/10/2019";
+        SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy");
+        Date dateEnv = formatter.parse(data);
+        String status = "ABERTO";
+        int avaliacaoCliente = 0;
+        int avaliacaoPrestador = 0;
+        long clienteId = 2;
+        long enderecoId= 1;
+        long anuncioId = 3;
 
-        DtoOrdemServico dtoOrdemServico = new DtoOrdemServico( currentTime ,0,0,Long.valueOf("1"),Long.valueOf("1"),Long.valueOf("1"));
+        DtoOrdemServico dtoOrdemServico = new DtoOrdemServico(id, status, dateEnv, avaliacaoCliente, avaliacaoPrestador, clienteId, enderecoId, anuncioId);
 
-        RetrofitService.getServico(this).criarOrdemServicos(dtoOrdemServico,token).enqueue(new Callback<DtoOrdemServico>() {
+        RetrofitService.getServico(this).criarOrdemServicos(dtoOrdemServico, token).enqueue(new Callback<DtoOrdemServico>(){
+
             @Override
             public void onResponse(Call<DtoOrdemServico> call, Response<DtoOrdemServico> response) {
-                System.out.println("deu bom");
+                Toast.makeText(DetalheAnuncioActivity.this, "Ordem servico cadastrado", Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onFailure(Call<DtoOrdemServico> call, Throwable t) {
-                System.out.println("Deu ruim");
+                Log.d(TAG, "falhou ao cadastrar: "+t.getMessage());
             }
         });
+
+
     }
+
 }

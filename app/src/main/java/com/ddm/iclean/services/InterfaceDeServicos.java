@@ -46,7 +46,7 @@ public interface InterfaceDeServicos {
     @POST("/anuncios")
     Call<DtoAnuncio> cadastraAnuncio(@Body DtoAnuncio dtoAnuncio, @Header("Authorization") String token);
 
-    @GET("/ordensServicos/minhasOrdens")
+    @GET("/ordensServicos")
     Call<List<DtoOrdemServico>> buscaOrdemServicos(@Header("Authorization") String token);
 
     @POST("/ordensServicos")
